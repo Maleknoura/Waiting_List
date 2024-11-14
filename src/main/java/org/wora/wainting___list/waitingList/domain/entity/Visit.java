@@ -51,5 +51,5 @@ public class Visit {
 
     @NotNull(message = "Waiting list is required")
     @ManyToOne
-    private WaintingList waitingList;
+    private WaitingList waitingList;
 }

@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
-public class WaintingList {
+public class WaitingList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;

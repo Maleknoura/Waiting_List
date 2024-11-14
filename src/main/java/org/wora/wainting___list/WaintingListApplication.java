@@ -8,6 +8,7 @@ public class WaintingListApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WaintingListApplication.class, args);
+        System.out.println("hello world !");
     }
 
 }

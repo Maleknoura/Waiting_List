@@ -6,10 +6,8 @@ import org.wora.wainting___list.visitor.application.VisitorService;
 import org.wora.wainting___list.visitor.domain.dto.UpdateRequestDto;
 import org.wora.wainting___list.visitor.domain.entity.Visitor;
 import org.wora.wainting___list.visitor.domain.repository.VisitorRepository;
-import org.wora.wainting___list.waitingList.domain.VisitRepository;
+import org.wora.wainting___list.waitingList.domain.repository.VisitRepository;
 import org.wora.wainting___list.waitingList.domain.entity.Visit;
-
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor

@@ -1,4 +1,4 @@
-package org.wora.wainting___list.waitingList.domain;
+package org.wora.wainting___list.waitingList.domain.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.wora.wainting___list.waitingList.domain.entity.Visit;

@@ -1,4 +1,10 @@
 spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.websocket.servlet.WebSocketServletAutoConfiguration
+      - org.springframework.boot.autoconfigure.websocket.reactive.WebSocketReactiveAutoConfiguration
+
+
   profiles:
     active: dev
 

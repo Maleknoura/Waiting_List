@@ -1,14 +1,13 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/WaitingList
+    url: jdbc:postgresql://localhost:5431/WaitingList
     username: postgres
     password: administrateur
+    driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
       ddl-auto: update
-  profiles:
-    active: dev
-
-logging:
-  level:
-    root: DEBUG
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect  # Ajoutez cette ligne
+    show-sql: true
