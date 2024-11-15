@@ -8,8 +8,8 @@ import org.wora.wainting___list.waitingList.domain.dto.response.WaitingListRespo
 import org.wora.wainting___list.waitingList.domain.entity.WaitingList;
 import org.wora.wainting___list.waitingList.domain.repository.WaitingListRepository;
 
+
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -34,21 +34,17 @@ public class WaitingListServiceImpl implements WaintingListService {
 
     @Override
     public List<WaitingListResponseDTO> getAll() {
-        return waitingListRepository.findAll().stream()
-                .map(waitingListMapper::toResponseDTO)
-                .collect(Collectors.toList());
+        List<WaitingList> waitingLists = waitingListRepository.findAll();
+        return waitingListMapper.toResponseDTOList(waitingLists);
     }
 
     @Override
     public WaitingListResponseDTO update(Long id, WaitingListRequestDTO requestDto) {
-        WaitingList waitingList = waitingListRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("WaitingList not found with id " + id));
-
-        waitingList.setDate(requestDto.date());
-        waitingList.setAlgorithm(requestDto.algorithm());
-        waitingList.setCapacity(requestDto.capacity());
-        waitingList.setMode(requestDto.mode());
-
+        if (!waitingListRepository.existsById(id)) {
+            throw new RuntimeException("WaitingList not found with id " + id);
+        }
+        WaitingList waitingList = waitingListMapper.toEntity(requestDto);
+        waitingList.setId(id);
         WaitingList updatedWaitingList = waitingListRepository.save(waitingList);
         return waitingListMapper.toResponseDTO(updatedWaitingList);
     }
@@ -62,5 +58,3 @@ public class WaitingListServiceImpl implements WaintingListService {
         return false;
     }
 }
-
-

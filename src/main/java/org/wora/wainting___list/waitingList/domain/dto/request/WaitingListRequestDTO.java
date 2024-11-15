@@ -2,10 +2,11 @@ package org.wora.wainting___list.waitingList.domain.dto.request;
 
 import jakarta.validation.constraints.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public record WaitingListRequestDTO(
-        @NotNull(message = "Date is required") Date date,
+        @NotNull(message = "Date is required") LocalDate date,
         @NotBlank(message = "Algorithm name is required")
         @Size(max = 100, message = "Algorithm name must not exceed 100 characters") String algorithm,
         @NotNull(message = "Capacity is required")

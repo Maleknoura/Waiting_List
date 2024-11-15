@@ -1,15 +1,22 @@
 package org.wora.wainting___list.waitingList.application.mapper;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
-import org.wora.wainting___list.common.GenericMapper;
+import org.mapstruct.Mapping;
 import org.wora.wainting___list.waitingList.domain.dto.request.WaitingListRequestDTO;
 import org.wora.wainting___list.waitingList.domain.dto.response.WaitingListResponseDTO;
 import org.wora.wainting___list.waitingList.domain.entity.WaitingList;
 
-@Mapper(componentModel = "spring")
-public interface WaitingListMapper extends GenericMapper<WaitingList, WaitingListRequestDTO, WaitingListResponseDTO> {
+import java.util.List;
 
-    WaitingListMapper INSTANCE = Mappers.getMapper(WaitingListMapper.class);
+
+@Mapper(componentModel = "spring")
+public interface WaitingListMapper {
+
+    WaitingList toEntity(WaitingListRequestDTO dto);
+
+    WaitingListResponseDTO toResponseDTO(WaitingList entity);
+
+    List<WaitingListResponseDTO> toResponseDTOList(List<WaitingList> entities);
 }
+
 

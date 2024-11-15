@@ -2,11 +2,11 @@ version: '3'
 services:
   db:
     image: postgres:latest
-    container_name: postgres_db
+#    container_name: postgres_db
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: administrateur
-      POSTGRES_DB: WaitingList
+      POSTGRES_USER: 'noura'
+      POSTGRES_PASSWORD: 'administrateur'
+      POSTGRES_DB: 'WaitingList'
     ports:
       - "5431:5431"
     command: [ "postgres", "-p", "5431" ]
