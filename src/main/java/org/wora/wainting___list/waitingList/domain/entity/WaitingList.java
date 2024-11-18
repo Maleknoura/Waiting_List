@@ -3,26 +3,29 @@ package org.wora.wainting___list.waitingList.domain.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.wora.wainting___list.waitingList.domain.enums.Algorithm;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 public class WaitingList {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotNull(message = "Date is required")
-    @Temporal(TemporalType.DATE)
-    private Date date;
+    private LocalDate date;
 
-    @NotBlank(message = "Algorithm name is required")
-    @Size(max = 100, message = "Algorithm name must not exceed 100 characters")
-    private String algorithm;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "algorithm")
+    private Algorithm algorithm;
 
     @NotNull(message = "Capacity is required")
     @Min(value = 1, message = "Capacity must be at least 1")
@@ -34,5 +37,9 @@ public class WaitingList {
     private String mode;
     @OneToMany(mappedBy = "waitingList")
     private List<Visit> visits;
+
+    public WaitingList(String s) {
+
+    }
 }
 

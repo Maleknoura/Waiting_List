@@ -57,4 +57,13 @@ public class WaitingListServiceImpl implements WaintingListService {
         }
         return false;
     }
+
+    @Override
+    public WaitingListResponseDTO findById(Long id) {
+        WaitingList waitingList = waitingListRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Waiting List not found"));
+        return waitingListMapper.toResponseDTO(waitingList);
+    }
+
+
 }

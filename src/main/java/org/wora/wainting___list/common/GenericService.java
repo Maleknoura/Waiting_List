@@ -13,4 +13,6 @@ public interface GenericService<RequestDTO, ResponseDTO, ID> {
     ResponseDTO update(ID id, RequestDTO requestDto);
 
     boolean delete(ID id);
+
+    ResponseDTO findById(ID id);
 }
