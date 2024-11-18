@@ -5,8 +5,7 @@ spring:
       - org.springframework.boot.autoconfigure.websocket.reactive.WebSocketReactiveAutoConfiguration
 
 
-  profiles:
-    active: dev
+
 
 wrm:
   scheduling:
